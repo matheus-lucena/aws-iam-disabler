@@ -1,4 +1,6 @@
-import logging, sys
+import sys
+import logging
+
 
 class Log:
     def __init__(self):

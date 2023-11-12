@@ -3,6 +3,7 @@ from datetime import datetime
 
 from utils import log
 
+
 class IamService:
 
     def __init__(self):
@@ -35,7 +36,7 @@ class IamService:
         list_access_keys_id = [user['AccessKeyId'] for user in access_keys]
         self.logger.info(f'recupered {len(access_keys)} access keys, access_key_ids={list_access_keys_id}')
         return access_keys
-    
+
     def get_old_usage_access_keys(self, days):
         datetime_now = datetime.now()
         old_access_keys = []
@@ -63,7 +64,7 @@ class IamService:
                     **last_used
                 })
         return old_access_keys
-    
+
     def disable_old_access_keys(self, days):
         for item in self.get_old_usage_access_keys(days):
             username = item['username']
@@ -77,5 +78,3 @@ class IamService:
             if response_metadata['HTTPStatusCode'] != 200:
                 self.logger.error(f'error to disable access_key_id={id}, username={username} aws_error={response_metadata}')
             self.logger.info(f'access_key_id={id}, username={username} disabled')
-        
-    
