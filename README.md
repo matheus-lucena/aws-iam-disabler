@@ -30,3 +30,10 @@ Liste aqui os pré-requisitos necessários para executar sua ferramenta. Isso po
 ```bash
 python main.py
 ```
+
+
+## Variáveis de ambiente
+
+| Chave      | Descrição | Valor padrão |
+| ----------- | ----------- | ----------- |
+| DISABLE_ACCESS_KEY_DAYS | Número de dias para verificação se uma chave está inativa | 60 dias |
